@@ -1,0 +1,15 @@
+packages:
+  "framer-motion": "For premium smooth scroll animations, fade-ins, and micro-interactions"
+  "react-hook-form": "For the booking form state management"
+  "@hookform/resolvers": "For Zod validation integration"
+  "zod": "Schema validation for the contact form"
+
+images:
+  - path: "artifacts/bayazid/public/images/hero-bg.png"
+    description: "Dark luxury metallic liquid texture, abstract silver and deep charcoal fluid waves, subtle neon indigo highlights"
+    aspect_ratio: "16:9"
+
+notes:
+  - Single page application, no backend API needed
+  - Form submissions are mock handled with toasts
+  - Uses framer-motion for high-end scroll animations

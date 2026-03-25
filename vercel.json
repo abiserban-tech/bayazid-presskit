@@ -1,0 +1,5 @@
+{
+  "buildCommand": "pnpm --filter @workspace/bayazid run build",
+  "outputDirectory": "artifacts/bayazid/dist/public",
+  "installCommand": "pnpm install"
+}
