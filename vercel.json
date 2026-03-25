@@ -1,6 +1,6 @@
 {
   "buildCommand": "pnpm --filter @workspace/bayazid run build",
   "outputDirectory": "artifacts/bayazid/dist/public",
-  "installCommand": "pnpm install --frozen-lockfile",
+  "installCommand": "pnpm install --no-frozen-lockfile",
   "framework": null
 }
