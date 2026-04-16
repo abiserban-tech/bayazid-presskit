@@ -196,6 +196,68 @@ export default function Home() {
       </section>
 
 
+      {/* INSTAGRAM */}
+      <section className="py-16 md:py-24 bg-[#0a0a0c] border-y border-white/5">
+        <div className="max-w-4xl mx-auto px-6 md:px-12">
+          <FadeIn>
+            <div className="flex flex-col md:flex-row items-center gap-8 md:gap-16">
+              {/* Left: IG branding */}
+              <div className="flex flex-col items-center md:items-start gap-4 shrink-0">
+                <div className="w-20 h-20 rounded-full p-[2px]" style={{ background: "linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888)" }}>
+                  <div className="w-full h-full rounded-full overflow-hidden bg-black">
+                    <img
+                      src={`${import.meta.env.BASE_URL}images/bayazid-photo-1.jpg`}
+                      alt="BAYAZID Instagram"
+                      className="w-full h-full object-cover object-top"
+                    />
+                  </div>
+                </div>
+                <div className="text-center md:text-left">
+                  <p className="text-white font-semibold tracking-wide">@tolga_cingiz</p>
+                  <p className="text-white/40 text-sm mt-0.5">BAYAZID</p>
+                </div>
+              </div>
+
+              {/* Divider */}
+              <div className="hidden md:block w-[1px] h-24 bg-white/10 shrink-0" />
+
+              {/* Right: call to action */}
+              <div className="flex-1 text-center md:text-left">
+                <div className="flex items-center gap-2 justify-center md:justify-start mb-3">
+                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none">
+                    <defs>
+                      <linearGradient id="ig" x1="0" y1="24" x2="24" y2="0" gradientUnits="userSpaceOnUse">
+                        <stop offset="0%" stopColor="#f09433"/>
+                        <stop offset="25%" stopColor="#e6683c"/>
+                        <stop offset="50%" stopColor="#dc2743"/>
+                        <stop offset="75%" stopColor="#cc2366"/>
+                        <stop offset="100%" stopColor="#bc1888"/>
+                      </linearGradient>
+                    </defs>
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="url(#ig)" strokeWidth="1.8"/>
+                    <circle cx="12" cy="12" r="4" stroke="url(#ig)" strokeWidth="1.8"/>
+                    <circle cx="17.5" cy="6.5" r="1" fill="url(#ig)"/>
+                  </svg>
+                  <span className="text-xs uppercase tracking-[0.25em] text-white/40 font-medium">Instagram</span>
+                </div>
+                <p className="text-white/70 text-lg font-light leading-relaxed mb-6">
+                  Behind the sets, before the lights — follow the journey.
+                </p>
+                <a
+                  href="https://www.instagram.com/tolga_cingiz?igsh=MXFiZ2doNXBpMDA5dQ=="
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-7 py-3 text-sm font-semibold text-white border border-white/20 hover:border-primary hover:text-primary transition-all duration-300"
+                  style={{ borderImage: "linear-gradient(45deg, #f09433, #bc1888) 1" }}
+                >
+                  <Instagram size={15} /> Follow @tolga_cingiz
+                </a>
+              </div>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
       {/* LONG BIO / STORY */}
       <section className="py-24 md:py-32">
         <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
