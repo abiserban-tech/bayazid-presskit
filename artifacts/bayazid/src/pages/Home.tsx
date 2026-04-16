@@ -186,6 +186,27 @@ export default function Home() {
               className="rounded-lg"
             />
           </FadeIn>
+
+          <FadeIn delay={0.4}>
+            <div className="mt-6 flex items-center gap-4">
+              <span className="w-8 h-[1px] bg-white/20" />
+              <p className="text-xs font-display tracking-[0.2em] uppercase text-white/30">Live Set</p>
+              <span className="flex-1 h-[1px] bg-white/20" />
+            </div>
+          </FadeIn>
+
+          <FadeIn delay={0.5} className="mt-4 glass-panel p-2 rounded-xl overflow-hidden">
+            <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+              <iframe
+                className="absolute inset-0 w-full h-full rounded-lg"
+                src="https://www.youtube.com/embed/ArlWGzpFFd8?rel=0&modestbranding=1&color=white"
+                title="BAYAZID Live Set"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+          </FadeIn>
         </div>
       </section>
 
