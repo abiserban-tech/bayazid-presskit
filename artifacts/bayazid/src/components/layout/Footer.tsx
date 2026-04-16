@@ -14,7 +14,7 @@ export function Footer() {
         
         <div className="flex items-center gap-6">
           <a 
-            href="https://www.instagram.com/tolga_cingiz?igsh=MXFiZ2doNXBpMDA5dQ=="
+            href="https://www.instagram.com/tolga_cingiz/"
             target="_blank"
             rel="noopener noreferrer"
             className="p-3 rounded-full bg-white/5 text-muted-foreground hover:bg-primary hover:text-white hover:scale-110 transition-all duration-300"

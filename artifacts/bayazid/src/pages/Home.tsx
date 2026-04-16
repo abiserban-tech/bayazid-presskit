@@ -138,7 +138,7 @@ export default function Home() {
                   <Youtube size={15} /> YouTube
                 </a>
                 <a
-                  href="https://www.instagram.com/tolga_cingiz"
+                  href="https://www.instagram.com/tolga_cingiz/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 px-5 py-2.5 bg-white/5 border border-white/10 text-white/80 text-sm font-medium hover:bg-primary/20 hover:border-primary hover:text-white transition-all duration-300 rounded-none"
@@ -244,7 +244,7 @@ export default function Home() {
                   Behind the sets, before the lights — follow the journey.
                 </p>
                 <a
-                  href="https://www.instagram.com/tolga_cingiz?igsh=MXFiZ2doNXBpMDA5dQ=="
+                  href="https://www.instagram.com/tolga_cingiz/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-7 py-3 text-sm font-semibold text-white border border-white/20 hover:border-primary hover:text-primary transition-all duration-300"
