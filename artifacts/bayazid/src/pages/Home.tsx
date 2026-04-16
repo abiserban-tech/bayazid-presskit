@@ -1,7 +1,8 @@
-import { ArrowRight, Instagram, Music, Youtube } from "lucide-react";
+import { ArrowRight, Instagram, Music, Youtube, Phone } from "lucide-react";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useState } from "react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { FadeIn } from "@/components/ui/FadeIn";
@@ -19,6 +20,7 @@ type BookingFormValues = z.infer<typeof bookingSchema>;
 
 export default function Home() {
   const { toast } = useToast();
+  const [listenOpen, setListenOpen] = useState(false);
   
   const form = useForm<BookingFormValues>({
     resolver: zodResolver(bookingSchema),
@@ -96,24 +98,55 @@ export default function Home() {
             </p>
           </FadeIn>
 
-          <FadeIn delay={0.8} className="flex flex-col sm:flex-row gap-6">
-            <a
-              href="#sound"
-              onClick={(e) => scrollTo(e, "#sound")}
-              className="group relative px-8 py-4 bg-white text-black font-semibold rounded-none overflow-hidden transition-all hover:scale-105"
-            >
-              <div className="absolute inset-0 bg-primary translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300 ease-out" />
-              <span className="relative flex items-center gap-2 group-hover:text-white transition-colors duration-300">
-                Listen Now <Music size={18} />
-              </span>
-            </a>
-            <a
-              href="#booking"
-              onClick={(e) => scrollTo(e, "#booking")}
-              className="group px-8 py-4 bg-transparent border border-white/20 text-white font-semibold rounded-none hover:border-primary hover:text-primary transition-all hover:scale-105 flex items-center gap-2 box-glow"
-            >
-              Book Now <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-            </a>
+          <FadeIn delay={0.8} className="flex flex-col items-center gap-4">
+            <div className="flex flex-col sm:flex-row gap-6">
+              <button
+                onClick={() => setListenOpen((v) => !v)}
+                className="group relative px-8 py-4 bg-white text-black font-semibold rounded-none overflow-hidden transition-all hover:scale-105"
+              >
+                <div className="absolute inset-0 bg-primary translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300 ease-out" />
+                <span className="relative flex items-center gap-2 group-hover:text-white transition-colors duration-300">
+                  Listen Now <Music size={18} />
+                </span>
+              </button>
+              <a
+                href="#booking"
+                onClick={(e) => scrollTo(e, "#booking")}
+                className="group px-8 py-4 bg-transparent border border-white/20 text-white font-semibold rounded-none hover:border-primary hover:text-primary transition-all hover:scale-105 flex items-center gap-2 box-glow"
+              >
+                Book Now <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+              </a>
+            </div>
+
+            {/* Platform selector */}
+            <div className={`overflow-hidden transition-all duration-500 ${listenOpen ? "max-h-40 opacity-100" : "max-h-0 opacity-0"}`}>
+              <div className="flex flex-wrap justify-center gap-3 pt-4">
+                <a
+                  href="https://soundcloud.com/bayazid-music-432837468"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-5 py-2.5 bg-white/5 border border-white/10 text-white/80 text-sm font-medium hover:bg-primary/20 hover:border-primary hover:text-white transition-all duration-300 rounded-none"
+                >
+                  <Music size={15} /> SoundCloud
+                </a>
+                <a
+                  href="https://www.youtube.com/@BAYAZIDMUSIC"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-5 py-2.5 bg-white/5 border border-white/10 text-white/80 text-sm font-medium hover:bg-primary/20 hover:border-primary hover:text-white transition-all duration-300 rounded-none"
+                >
+                  <Youtube size={15} /> YouTube
+                </a>
+                <a
+                  href="https://www.instagram.com/tolga_cingiz"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-5 py-2.5 bg-white/5 border border-white/10 text-white/80 text-sm font-medium hover:bg-primary/20 hover:border-primary hover:text-white transition-all duration-300 rounded-none"
+                >
+                  <Instagram size={15} /> Instagram
+                </a>
+              </div>
+            </div>
           </FadeIn>
         </div>
       </section>
@@ -212,34 +245,33 @@ export default function Home() {
 
       {/* GALLERY */}
       <section id="gallery" className="py-24 md:py-32">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
+        <div className="max-w-6xl mx-auto px-6 md:px-12">
           <FadeIn>
             <h2 className="text-4xl md:text-5xl font-display font-bold mb-16 text-center">Moments</h2>
           </FadeIn>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              "Behind The Decks", "Crowd Connection", "Live Set Brussels",
-              "Studio Sessions", "Bucharest Nights", "Festival Mainstage"
-            ].map((label, i) => (
-              <FadeIn key={label} delay={0.1 * i} className="group relative aspect-[4/5] overflow-hidden rounded-xl bg-card border border-white/5">
-                {/* Placeholder gradient since no real images */}
-                <div className={`absolute inset-0 bg-gradient-to-br opacity-80 group-hover:scale-110 transition-transform duration-700
-                  ${i % 3 === 0 ? 'from-[#0f1224] to-black' : 
-                    i % 3 === 1 ? 'from-[#14151a] to-[#050505]' : 
-                    'from-[#0a0f1c] to-black'}`} 
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+            <FadeIn delay={0.1} className="group relative overflow-hidden rounded-xl">
+              <div className="aspect-[3/4] overflow-hidden">
+                <img
+                  src={`${import.meta.env.BASE_URL}images/bayazid-photo-1.jpg`}
+                  alt="BAYAZID"
+                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
                 />
-                
-                {/* Subtle vignette */}
-                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500" />
-                
-                <div className="absolute inset-0 flex items-center justify-center p-6 text-center">
-                  <span className="font-display uppercase tracking-widest text-sm text-white/40 group-hover:text-white transition-colors duration-300">
-                    {label}
-                  </span>
-                </div>
-              </FadeIn>
-            ))}
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            </FadeIn>
+
+            <FadeIn delay={0.2} className="group relative overflow-hidden rounded-xl md:mt-16">
+              <div className="aspect-[3/4] overflow-hidden">
+                <img
+                  src={`${import.meta.env.BASE_URL}images/bayazid-photo-2.jpg`}
+                  alt="BAYAZID"
+                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                />
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            </FadeIn>
           </div>
         </div>
       </section>
@@ -281,6 +313,12 @@ export default function Home() {
               />
             </h2>
             <p className="text-muted-foreground text-lg">For inquiries, festivals, and club bookings.</p>
+            <a
+              href="tel:+40723182672"
+              className="inline-flex items-center gap-2 mt-4 text-primary hover:text-white transition-colors duration-300 text-sm tracking-widest font-medium"
+            >
+              <Phone size={15} /> +40 723 182 672
+            </a>
           </FadeIn>
 
           <FadeIn delay={0.2}>
