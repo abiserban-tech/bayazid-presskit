@@ -151,6 +151,34 @@ export default function Home() {
         </div>
       </section>
 
+      {/* PHOTOS */}
+      <section className="py-16 md:py-24">
+        <div className="max-w-6xl mx-auto px-6 md:px-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+            <FadeIn delay={0.1} className="group relative overflow-hidden rounded-xl">
+              <div className="aspect-[3/4] overflow-hidden">
+                <img
+                  src={`${import.meta.env.BASE_URL}images/bayazid-photo-1.jpg`}
+                  alt="BAYAZID"
+                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                />
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            </FadeIn>
+            <FadeIn delay={0.2} className="group relative overflow-hidden rounded-xl md:mt-16">
+              <div className="aspect-[3/4] overflow-hidden">
+                <img
+                  src={`${import.meta.env.BASE_URL}images/bayazid-photo-2.jpg`}
+                  alt="BAYAZID"
+                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                />
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
       {/* SHORT BIO */}
       <section id="bio" className="py-24 md:py-32 relative">
         <div className="max-w-4xl mx-auto px-6 md:px-12 text-center">
@@ -240,39 +268,6 @@ export default function Home() {
               />
             </div>
           </FadeIn>
-        </div>
-      </section>
-
-      {/* GALLERY */}
-      <section id="gallery" className="py-24 md:py-32">
-        <div className="max-w-6xl mx-auto px-6 md:px-12">
-          <FadeIn>
-            <h2 className="text-4xl md:text-5xl font-display font-bold mb-16 text-center">Moments</h2>
-          </FadeIn>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-            <FadeIn delay={0.1} className="group relative overflow-hidden rounded-xl">
-              <div className="aspect-[3/4] overflow-hidden">
-                <img
-                  src={`${import.meta.env.BASE_URL}images/bayazid-photo-1.jpg`}
-                  alt="BAYAZID"
-                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
-                />
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            </FadeIn>
-
-            <FadeIn delay={0.2} className="group relative overflow-hidden rounded-xl md:mt-16">
-              <div className="aspect-[3/4] overflow-hidden">
-                <img
-                  src={`${import.meta.env.BASE_URL}images/bayazid-photo-2.jpg`}
-                  alt="BAYAZID"
-                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
-                />
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            </FadeIn>
-          </div>
         </div>
       </section>
 
