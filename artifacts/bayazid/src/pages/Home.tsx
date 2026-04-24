@@ -8,7 +8,6 @@ import { Footer } from "@/components/layout/Footer";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { useToast } from "@/hooks/use-toast";
 
-// --- Form Schema ---
 const bookingSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
   email: z.string().email("Invalid email address"),
@@ -55,123 +54,62 @@ export default function Home() {
     <div className="bg-background min-h-screen text-foreground selection:bg-primary/30 selection:text-white overflow-x-hidden">
       <Navbar />
 
-      {/* HERO SECTION */}
       <section id="hero" className="relative h-screen flex items-center justify-center overflow-hidden">
-        {/* Animated Background */}
-        <div 
-          className="absolute inset-0 bg-[length:400%_400%] animate-gradient-xy opacity-60"
-          style={{
-            backgroundImage: `radial-gradient(circle at center, hsl(var(--primary)/0.15) 0%, transparent 50%), linear-gradient(to bottom right, #050505, #0a0a0c, #111424, #050505)`
-          }}
-        />
-        
-        {/* Generated Texture Overlay */}
-        <div 
-          className="absolute inset-0 opacity-20 mix-blend-overlay bg-cover bg-center"
-          style={{ backgroundImage: `url(${import.meta.env.BASE_URL}images/hero-bg.png)` }}
-        />
-        
-        {/* Vignette */}
+        <div className="absolute inset-0 bg-[length:400%_400%] animate-gradient-xy opacity-60" style={{ backgroundImage: `radial-gradient(circle at center, hsl(var(--primary)/0.15) 0%, transparent 50%), linear-gradient(to bottom right, #050505, #0a0a0c, #111424, #050505)` }} />
+        <div className="absolute inset-0 opacity-20 mix-blend-overlay bg-cover bg-center" style={{ backgroundImage: `url(${import.meta.env.BASE_URL}images/hero-bg.png)` }} />
         <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-transparent to-background" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 flex flex-col items-center text-center">
           <FadeIn delay={0.2} direction="down">
-            <span className="uppercase tracking-[0.3em] text-sm md:text-base text-primary font-semibold mb-6 block text-glow">
-              Official Press Kit
-            </span>
+            <span className="uppercase tracking-[0.3em] text-sm md:text-base text-primary font-semibold mb-6 block text-glow">Official Press Kit</span>
           </FadeIn>
-          
           <FadeIn delay={0.4}>
             <h1 className="mb-6">
-              <img
-                src={`${import.meta.env.BASE_URL}images/bayazid-logo.png`}
-                alt="BAYAZID"
-                className="w-[70vw] max-w-3xl md:max-w-4xl mx-auto drop-shadow-2xl"
-                style={{ filter: "drop-shadow(0 0 40px rgba(255,255,255,0.08))" }}
-              />
+              <img src={`${import.meta.env.BASE_URL}images/bayazid-logo.png`} alt="BAYAZID" className="w-[70vw] max-w-3xl md:max-w-4xl mx-auto drop-shadow-2xl" style={{ filter: "drop-shadow(0 0 40px rgba(255,255,255,0.08))" }} />
             </h1>
           </FadeIn>
-
           <FadeIn delay={0.6}>
-            <p className="text-lg md:text-2xl text-muted-foreground max-w-2xl font-light tracking-wide mb-12">
-              Multicultural Energy. Hypnotic Grooves. Pure Connection.
-            </p>
+            <p className="text-lg md:text-2xl text-muted-foreground max-w-2xl font-light tracking-wide mb-12">Multicultural Energy. Hypnotic Grooves. Pure Connection.</p>
           </FadeIn>
-
           <FadeIn delay={0.8} className="flex flex-col items-center gap-4">
             <div className="flex flex-col sm:flex-row gap-6">
-              <button
-                onClick={() => setListenOpen((v) => !v)}
-                className="group relative px-8 py-4 bg-white text-black font-semibold rounded-none overflow-hidden transition-all hover:scale-105"
-              >
+              <button onClick={() => setListenOpen((v) => !v)} className="group relative px-8 py-4 bg-white text-black font-semibold rounded-none overflow-hidden transition-all hover:scale-105">
                 <div className="absolute inset-0 bg-primary translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300 ease-out" />
-                <span className="relative flex items-center gap-2 group-hover:text-white transition-colors duration-300">
-                  Listen Now <Music size={18} />
-                </span>
+                <span className="relative flex items-center gap-2 group-hover:text-white transition-colors duration-300">Listen Now <Music size={18} /></span>
               </button>
-              <a
-                href="#booking"
-                onClick={(e) => scrollTo(e, "#booking")}
-                className="group px-8 py-4 bg-transparent border border-white/20 text-white font-semibold rounded-none hover:border-primary hover:text-primary transition-all hover:scale-105 flex items-center gap-2 box-glow"
-              >
+              <a href="#booking" onClick={(e) => scrollTo(e, "#booking")} className="group px-8 py-4 bg-transparent border border-white/20 text-white font-semibold rounded-none hover:border-primary hover:text-primary transition-all hover:scale-105 flex items-center gap-2 box-glow">
                 Book Now <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
               </a>
             </div>
-
-            {/* Platform selector */}
             <div className={`overflow-hidden transition-all duration-500 ${listenOpen ? "max-h-40 opacity-100" : "max-h-0 opacity-0"}`}>
               <div className="flex flex-wrap justify-center gap-3 pt-4">
-                <a
-                  href="https://soundcloud.com/bayazid-music-432837468"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-5 py-2.5 bg-white/5 border border-white/10 text-white/80 text-sm font-medium hover:bg-primary/20 hover:border-primary hover:text-white transition-all duration-300 rounded-none"
-                >
-                  <Music size={15} /> SoundCloud
-                </a>
-                <a
-                  href="https://www.youtube.com/@BAYAZIDMUSIC"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-5 py-2.5 bg-white/5 border border-white/10 text-white/80 text-sm font-medium hover:bg-primary/20 hover:border-primary hover:text-white transition-all duration-300 rounded-none"
-                >
-                  <Youtube size={15} /> YouTube
-                </a>
-                <a
-                  href="https://www.instagram.com/tolga_cingiz/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-5 py-2.5 bg-white/5 border border-white/10 text-white/80 text-sm font-medium hover:bg-primary/20 hover:border-primary hover:text-white transition-all duration-300 rounded-none"
-                >
-                  <Instagram size={15} /> Instagram
-                </a>
+                <a href="https://soundcloud.com/bayazid-music-432837468" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-5 py-2.5 bg-white/5 border border-white/10 text-white/80 text-sm font-medium hover:bg-primary/20 hover:border-primary hover:text-white transition-all duration-300 rounded-none"><Music size={15} /> SoundCloud</a>
+                <a href="https://www.youtube.com/@BAYAZIDMUSIC" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-5 py-2.5 bg-white/5 border border-white/10 text-white/80 text-sm font-medium hover:bg-primary/20 hover:border-primary hover:text-white transition-all duration-300 rounded-none"><Youtube size={15} /> YouTube</a>
+                <a href="https://www.instagram.com/tolga_cingiz/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-5 py-2.5 bg-white/5 border border-white/10 text-white/80 text-sm font-medium hover:bg-primary/20 hover:border-primary hover:text-white transition-all duration-300 rounded-none"><Instagram size={15} /> Instagram</a>
               </div>
             </div>
           </FadeIn>
         </div>
       </section>
 
-      {/* PHOTOS */}
       <section className="py-16 md:py-24">
         <div className="max-w-6xl mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
             <FadeIn delay={0.1} className="group relative overflow-hidden rounded-xl">
               <div className="aspect-[3/4] overflow-hidden">
-                <img
-                  src={`${import.meta.env.BASE_URL}images/bayazid-photo-1.jpg`}
-                  alt="BAYAZID"
-                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
-                />
+                <img src={`${import.meta.env.BASE_URL}images/bayazid-photo-1.jpg`} alt="BAYAZID" className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" />
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </FadeIn>
             <FadeIn delay={0.2} className="group relative overflow-hidden rounded-xl md:mt-16">
               <div className="aspect-[3/4] overflow-hidden">
-                <img
-                  src={`${import.meta.env.BASE_URL}images/bayazid-photo-2.jpg`}
-                  alt="BAYAZID"
-                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
-                />
+                <img src={`${import.meta.env.BASE_URL}images/bayazid-photo-3.jpg`} alt="BAYAZID at the decks" className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" />
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            </FadeIn>
+            <FadeIn delay={0.3} className="group relative overflow-hidden rounded-xl md:mt-8">
+              <div className="aspect-[3/4] overflow-hidden">
+                <img src={`${import.meta.env.BASE_URL}images/bayazid-photo-2.jpg`} alt="BAYAZID" className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" />
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </FadeIn>
@@ -179,37 +117,25 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SHORT BIO */}
       <section id="bio" className="py-24 md:py-32 relative">
         <div className="max-w-4xl mx-auto px-6 md:px-12 text-center">
           <FadeIn>
-            <p className="text-2xl md:text-4xl font-display font-light leading-snug md:leading-tight text-white/90">
-              BAYAZID is a DJ who transforms multicultural energy into a captivating sound, where <span className="text-primary font-medium">deep rhythms</span>, hypnotic grooves, and modern influences blend into an intense dancefloor experience.
-            </p>
+            <p className="text-2xl md:text-4xl font-display font-light leading-snug md:leading-tight text-white/90">BAYAZID is a DJ who transforms multicultural energy into a captivating sound, where <span className="text-primary font-medium">deep rhythms</span>, hypnotic grooves, and modern influences blend into an intense dancefloor experience.</p>
           </FadeIn>
           <FadeIn delay={0.2}>
-            <p className="mt-8 text-lg text-muted-foreground max-w-2xl mx-auto">
-              With roots in Brussels and shaped in Bucharest, his style reflects an authentic mix of cultures. Each set is crafted with precision and delivered with an energy that instantly connects with the crowd. A perfectionist by nature, guided by a discipline built through business, BAYAZID doesn't just play music, he creates moments.
-            </p>
+            <p className="mt-8 text-lg text-muted-foreground max-w-2xl mx-auto">With roots in Brussels and shaped in Bucharest, his style reflects an authentic mix of cultures. Each set is crafted with precision and delivered with an energy that instantly connects with the crowd. A perfectionist by nature, guided by a discipline built through business, BAYAZID doesn't just play music, he creates moments.</p>
           </FadeIn>
         </div>
       </section>
 
-
-      {/* INSTAGRAM */}
       <section className="py-16 md:py-24 bg-[#0a0a0c] border-y border-white/5">
         <div className="max-w-4xl mx-auto px-6 md:px-12">
           <FadeIn>
             <div className="flex flex-col md:flex-row items-center gap-8 md:gap-16">
-              {/* Left: IG branding */}
               <div className="flex flex-col items-center md:items-start gap-4 shrink-0">
                 <div className="w-20 h-20 rounded-full p-[2px]" style={{ background: "linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888)" }}>
                   <div className="w-full h-full rounded-full overflow-hidden bg-black">
-                    <img
-                      src={`${import.meta.env.BASE_URL}images/bayazid-photo-1.jpg`}
-                      alt="BAYAZID Instagram"
-                      className="w-full h-full object-cover object-top"
-                    />
+                    <img src={`${import.meta.env.BASE_URL}images/bayazid-photo-1.jpg`} alt="BAYAZID Instagram" className="w-full h-full object-cover object-top" />
                   </div>
                 </div>
                 <div className="text-center md:text-left">
@@ -217,11 +143,7 @@ export default function Home() {
                   <p className="text-white/40 text-sm mt-0.5">BAYAZID</p>
                 </div>
               </div>
-
-              {/* Divider */}
               <div className="hidden md:block w-[1px] h-24 bg-white/10 shrink-0" />
-
-              {/* Right: call to action */}
               <div className="flex-1 text-center md:text-left">
                 <div className="flex items-center gap-2 justify-center md:justify-start mb-3">
                   <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none">
@@ -240,16 +162,8 @@ export default function Home() {
                   </svg>
                   <span className="text-xs uppercase tracking-[0.25em] text-white/40 font-medium">Instagram</span>
                 </div>
-                <p className="text-white/70 text-lg font-light leading-relaxed mb-6">
-                  Behind the sets, before the lights — follow the journey.
-                </p>
-                <a
-                  href="https://www.instagram.com/tolga_cingiz/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-7 py-3 text-sm font-semibold text-white border border-white/20 hover:border-primary hover:text-primary transition-all duration-300"
-                  style={{ borderImage: "linear-gradient(45deg, #f09433, #bc1888) 1" }}
-                >
+                <p className="text-white/70 text-lg font-light leading-relaxed mb-6">Behind the sets, before the lights — follow the journey.</p>
+                <a href="https://www.instagram.com/tolga_cingiz/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-7 py-3 text-sm font-semibold text-white border border-white/20 hover:border-primary hover:text-primary transition-all duration-300" style={{ borderImage: "linear-gradient(45deg, #f09433, #bc1888) 1" }}>
                   <Instagram size={15} /> Follow @tolga_cingiz
                 </a>
               </div>
@@ -258,190 +172,93 @@ export default function Home() {
         </div>
       </section>
 
-      {/* LONG BIO / STORY */}
       <section className="py-24 md:py-32">
         <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
           <div className="md:col-span-5">
             <FadeIn>
-              <h2 className="text-5xl md:text-7xl font-display font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-white/30 uppercase tracking-tighter">
-                The Story
-              </h2>
+              <h2 className="text-5xl md:text-7xl font-display font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-white/30 uppercase tracking-tighter">The Story</h2>
             </FadeIn>
           </div>
           <div className="md:col-span-7 space-y-6 text-muted-foreground text-lg leading-relaxed font-light">
-            <FadeIn delay={0.2}>
-              <p>
-                Born in Brussels and raised between cultures, BAYAZID built his artistic identity on contrast, international influences, urban energy, and a natural attraction to rhythm. Settled in Bucharest from his teenage years, he developed a disciplined, performance-driven mindset that would later define his path.
-              </p>
-            </FadeIn>
-            <FadeIn delay={0.3}>
-              <p>
-                After building a solid career in business and entrepreneurship, where he created and grew a recognized brand in the distribution industry, he uncovered a deeper creative side that had always been within him. The moment he first stepped behind the decks was decisive. It wasn't just a discovery, but a reconnection with an energy that had always been there.
-              </p>
-            </FadeIn>
-            <FadeIn delay={0.4}>
-              <p>
-                Today, BAYAZID delivers sets built on groove, tension, and release, blending deep, house-driven sounds with rhythmic influences that keep the dancefloor moving. His style is not about following trends, but about creating a recognizable atmosphere. With a refined approach and controlled energy, each appearance becomes an experience, not just a set.
-              </p>
-            </FadeIn>
+            <FadeIn delay={0.2}><p>Born in Brussels and raised between cultures, BAYAZID built his artistic identity on contrast, international influences, urban energy, and a natural attraction to rhythm. Settled in Bucharest from his teenage years, he developed a disciplined, performance-driven mindset that would later define his path.</p></FadeIn>
+            <FadeIn delay={0.3}><p>After building a solid career in business and entrepreneurship, where he created and grew a recognized brand in the distribution industry, he uncovered a deeper creative side that had always been within him. The moment he first stepped behind the decks was decisive. It wasn't just a discovery, but a reconnection with an energy that had always been there.</p></FadeIn>
+            <FadeIn delay={0.4}><p>Today, BAYAZID delivers sets built on groove, tension, and release, blending deep, house-driven sounds with rhythmic influences that keep the dancefloor moving. His style is not about following trends, but about creating a recognizable atmosphere. With a refined approach and controlled energy, each appearance becomes an experience, not just a set.</p></FadeIn>
           </div>
         </div>
       </section>
 
-      {/* SOUND SECTION */}
       <section id="sound" className="py-24 bg-[#0a0a0c] border-y border-white/5">
         <div className="max-w-5xl mx-auto px-6 md:px-12">
-          <FadeIn>
-            <h2 className="text-sm font-display font-bold tracking-[0.3em] uppercase text-primary mb-12 flex items-center justify-end gap-4 text-right">
-              Sound
-              <span className="w-12 h-[1px] bg-primary" />
-            </h2>
-          </FadeIn>
-          
+          <FadeIn><h2 className="text-sm font-display font-bold tracking-[0.3em] uppercase text-primary mb-12 flex items-center justify-end gap-4 text-right">Sound <span className="w-12 h-[1px] bg-primary" /></h2></FadeIn>
           <FadeIn delay={0.2} className="glass-panel p-2 rounded-xl">
-            <iframe 
-              width="100%" 
-              height="300" 
-              scrolling="no" 
-              frameBorder="no" 
-              allow="autoplay" 
-              src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/bayazid-music-432837468&color=%231a1a2e&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=true&visual=true"
-              className="rounded-lg"
-            />
+            <iframe width="100%" height="300" scrolling="no" frameBorder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/bayazid-music-432837468&color=%231a1a2e&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=true&visual=true" className="rounded-lg" />
           </FadeIn>
-
-          <FadeIn delay={0.4}>
-            <div className="mt-6 flex items-center gap-4">
-              <span className="w-8 h-[1px] bg-white/20" />
-              <p className="text-xs font-display tracking-[0.2em] uppercase text-white/30">Live Set</p>
-              <span className="flex-1 h-[1px] bg-white/20" />
-            </div>
-          </FadeIn>
-
+          <FadeIn delay={0.4}><div className="mt-6 flex items-center gap-4"><span className="w-8 h-[1px] bg-white/20" /><p className="text-xs font-display tracking-[0.2em] uppercase text-white/30">Live Set</p><span className="flex-1 h-[1px] bg-white/20" /></div></FadeIn>
           <FadeIn delay={0.5} className="mt-4 glass-panel p-2 rounded-xl overflow-hidden">
             <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
-              <iframe
-                className="absolute inset-0 w-full h-full rounded-lg"
-                src="https://www.youtube.com/embed/ArlWGzpFFd8?rel=0&modestbranding=1&color=white"
-                title="BAYAZID Live Set"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
+              <iframe className="absolute inset-0 w-full h-full rounded-lg" src="https://www.youtube.com/embed/ArlWGzpFFd8?rel=0&modestbranding=1&color=white" title="BAYAZID Live Set" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
             </div>
           </FadeIn>
         </div>
       </section>
 
-      {/* INFO / TECH RIDER */}
       <section className="py-20 bg-primary/5 border-y border-primary/10">
         <div className="max-w-4xl mx-auto px-6 md:px-12 text-center">
           <FadeIn>
             <h3 className="text-xl font-display uppercase tracking-[0.2em] mb-8 text-white">Artist Info</h3>
             <div className="flex flex-wrap justify-center gap-x-12 gap-y-6 text-muted-foreground">
-              <div className="flex flex-col items-center">
-                <span className="text-xs uppercase tracking-widest text-primary/70 mb-2">Genres</span>
-                <span className="font-medium text-white/90">Afro House / Deep House / Groove</span>
-              </div>
-              <div className="flex flex-col items-center">
-                <span className="text-xs uppercase tracking-widest text-primary/70 mb-2">Based In</span>
-                <span className="font-medium text-white/90">Bucharest & Brussels</span>
-              </div>
-              <div className="flex flex-col items-center">
-                <span className="text-xs uppercase tracking-widest text-primary/70 mb-2">Availability</span>
-                <span className="font-medium text-white/90">International</span>
-              </div>
+              <div className="flex flex-col items-center"><span className="text-xs uppercase tracking-widest text-primary/70 mb-2">Genres</span><span className="font-medium text-white/90">Afro House / Deep House / Groove</span></div>
+              <div className="flex flex-col items-center"><span className="text-xs uppercase tracking-widest text-primary/70 mb-2">Based In</span><span className="font-medium text-white/90">Bucharest & Brussels</span></div>
+              <div className="flex flex-col items-center"><span className="text-xs uppercase tracking-widest text-primary/70 mb-2">Availability</span><span className="font-medium text-white/90">International</span></div>
             </div>
           </FadeIn>
         </div>
       </section>
 
-      {/* BOOKING SECTION */}
       <section id="booking" className="py-24 md:py-32 relative">
         <div className="max-w-3xl mx-auto px-6 md:px-12">
           <FadeIn className="text-center mb-16">
             <h2 className="mb-4 flex flex-col items-center gap-3">
               <span className="text-5xl md:text-7xl font-display font-black tracking-tighter text-glow">BOOK</span>
-              <img
-                src={`${import.meta.env.BASE_URL}images/bayazid-logo.png`}
-                alt="BAYAZID"
-                className="w-64 md:w-80 mx-auto"
-                style={{ filter: "drop-shadow(0 0 20px rgba(99,102,241,0.3))" }}
-              />
+              <img src={`${import.meta.env.BASE_URL}images/bayazid-logo.png`} alt="BAYAZID" className="w-64 md:w-80 mx-auto" style={{ filter: "drop-shadow(0 0 20px rgba(99,102,241,0.3))" }} />
             </h2>
             <p className="text-muted-foreground text-lg">For inquiries, festivals, and club bookings.</p>
-            <a
-              href="tel:+40723182672"
-              className="inline-flex items-center gap-2 mt-4 text-primary hover:text-white transition-colors duration-300 text-sm tracking-widest font-medium"
-            >
-              <Phone size={15} /> +40 723 182 672
-            </a>
+            <div className="mt-4 flex flex-col gap-3 text-sm tracking-widest font-medium">
+              <div className="mx-auto w-full max-w-md rounded-2xl border border-white/10 bg-white/5 px-5 py-4 shadow-[0_0_30px_rgba(99,102,241,0.12)] backdrop-blur-sm">
+                <a href="tel:+40723182672" className="inline-flex items-center justify-center gap-2 w-full text-primary hover:text-white transition-colors duration-300 mb-2">
+                  <Phone size={15} /> +40 723 182 672
+                </a>
+                <a href="mailto:Booking@bayazid.com" className="inline-flex items-center justify-center w-full text-primary hover:text-white transition-colors duration-300 text-base md:text-lg font-semibold break-all">
+                  Booking@bayazid.com
+                </a>
+              </div>
+            </div>
           </FadeIn>
-
           <FadeIn delay={0.2}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 glass-panel p-8 md:p-12 rounded-2xl">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {/* Name Field */}
                 <div className="space-y-2">
                   <label className="text-xs uppercase tracking-widest text-white/60 font-medium">Full Name</label>
-                  <input 
-                    {...form.register("name")}
-                    className="w-full bg-background/50 border border-white/10 rounded-none px-4 py-3 text-white placeholder:text-white/20 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"
-                    placeholder="Enter your name"
-                  />
-                  {form.formState.errors.name && (
-                    <p className="text-destructive text-xs">{form.formState.errors.name.message}</p>
-                  )}
+                  <input {...form.register("name")} className="w-full bg-background/50 border border-white/10 rounded-none px-4 py-3 text-white placeholder:text-white/20 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" placeholder="Enter your name" />
+                  {form.formState.errors.name && (<p className="text-destructive text-xs">{form.formState.errors.name.message}</p>)}
                 </div>
-
-                {/* Email Field */}
                 <div className="space-y-2">
                   <label className="text-xs uppercase tracking-widest text-white/60 font-medium">Email Address</label>
-                  <input 
-                    {...form.register("email")}
-                    className="w-full bg-background/50 border border-white/10 rounded-none px-4 py-3 text-white placeholder:text-white/20 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"
-                    placeholder="contact@agency.com"
-                  />
-                  {form.formState.errors.email && (
-                    <p className="text-destructive text-xs">{form.formState.errors.email.message}</p>
-                  )}
+                  <input {...form.register("email")} className="w-full bg-background/50 border border-white/10 rounded-none px-4 py-3 text-white placeholder:text-white/20 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" placeholder="contact@agency.com" />
+                  {form.formState.errors.email && (<p className="text-destructive text-xs">{form.formState.errors.email.message}</p>)}
                 </div>
               </div>
-
-              {/* Date Field */}
               <div className="space-y-2">
                 <label className="text-xs uppercase tracking-widest text-white/60 font-medium">Event Date</label>
-                <input 
-                  type="date"
-                  {...form.register("date")}
-                  className="w-full bg-background/50 border border-white/10 rounded-none px-4 py-3 text-white placeholder:text-white/20 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all [color-scheme:dark]"
-                />
-                {form.formState.errors.date && (
-                  <p className="text-destructive text-xs">{form.formState.errors.date.message}</p>
-                )}
+                <input type="date" {...form.register("date")} className="w-full bg-background/50 border border-white/10 rounded-none px-4 py-3 text-white placeholder:text-white/20 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all [color-scheme:dark]" />
+                {form.formState.errors.date && (<p className="text-destructive text-xs">{form.formState.errors.date.message}</p>)}
               </div>
-
-              {/* Message Field */}
               <div className="space-y-2">
                 <label className="text-xs uppercase tracking-widest text-white/60 font-medium">Event Details</label>
-                <textarea 
-                  {...form.register("message")}
-                  rows={4}
-                  className="w-full bg-background/50 border border-white/10 rounded-none px-4 py-3 text-white placeholder:text-white/20 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all resize-none"
-                  placeholder="Venue, expected capacity, set time..."
-                />
-                {form.formState.errors.message && (
-                  <p className="text-destructive text-xs">{form.formState.errors.message.message}</p>
-                )}
+                <textarea {...form.register("message")} rows={4} className="w-full bg-background/50 border border-white/10 rounded-none px-4 py-3 text-white placeholder:text-white/20 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all resize-none" placeholder="Venue, expected capacity, set time..." />
+                {form.formState.errors.message && (<p className="text-destructive text-xs">{form.formState.errors.message.message}</p>)}
               </div>
-
-              <button 
-                type="submit"
-                disabled={form.formState.isSubmitting}
-                className="w-full bg-primary text-white font-display font-bold uppercase tracking-widest py-4 hover:bg-primary/90 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 disabled:opacity-50 box-glow"
-              >
-                {form.formState.isSubmitting ? "Sending..." : "Send Request"}
-              </button>
+              <button type="submit" disabled={form.formState.isSubmitting} className="w-full bg-primary text-white font-display font-bold uppercase tracking-widest py-4 hover:bg-primary/90 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 disabled:opacity-50 box-glow">{form.formState.isSubmitting ? "Sending..." : "Send Request"}</button>
             </form>
           </FadeIn>
         </div>

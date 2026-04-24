@@ -1,11 +1,10 @@
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, FileText } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const NAV_LINKS = [
   { name: "Bio", href: "#bio" },
   { name: "Sound", href: "#sound" },
-  { name: "Gallery", href: "#gallery" },
   { name: "Book", href: "#booking" },
 ];
 
@@ -64,6 +63,12 @@ export function Navbar() {
                 <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full" />
               </a>
             ))}
+            <a
+              href={`${import.meta.env.BASE_URL}presskit`}
+              className="flex items-center gap-2 px-4 py-2 border border-primary/40 text-primary text-xs font-bold uppercase tracking-widest hover:bg-primary hover:text-white transition-all duration-300"
+            >
+              <FileText size={13} /> Press Kit
+            </a>
           </nav>
 
           {/* Mobile Toggle */}
@@ -97,6 +102,13 @@ export function Navbar() {
                   {link.name}
                 </a>
               ))}
+              <a
+                href={`${import.meta.env.BASE_URL}presskit`}
+                className="text-2xl font-display font-bold text-primary hover:text-white transition-colors duration-300 uppercase tracking-widest flex items-center gap-3"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <FileText size={20} /> Press Kit
+              </a>
             </nav>
           </motion.div>
         )}
